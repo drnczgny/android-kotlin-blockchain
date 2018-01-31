@@ -1,14 +1,16 @@
 package com.adrian.project.ui.main.view
 
+import com.adrian.project.ui.blockchaindemoapp.view.BlockchainPageActivity
 import com.adrian.project.ui.main.JsonPlaceholderActivity
 import com.adrian.project.ui.main.model.MainModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : android.support.v7.app.AppCompatActivity(), MainRouter {
 
     @javax.inject.Inject
     lateinit var mainModel: MainModel
 
-    lateinit var btnPostsPage: android.widget.Button
+
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,12 +19,17 @@ class MainActivity : android.support.v7.app.AppCompatActivity(), MainRouter {
 
         mainModel.callApiService()
 
-        btnPostsPage = findViewById(com.adrian.project.R.id.btnPostsPage) as android.widget.Button
         btnPostsPage.setOnClickListener { openPostsPage() }
+        btnBlockchain.setOnClickListener { openBlockchainPage() }
     }
 
     fun openPostsPage() {
         val intent = android.content.Intent(this, JsonPlaceholderActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun openBlockchainPage() {
+        val intent = android.content.Intent(this, BlockchainPageActivity::class.java)
         startActivity(intent)
     }
 }

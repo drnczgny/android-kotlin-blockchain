@@ -1,6 +1,8 @@
 package com.adrian.project.di
 
 import com.adrian.kotlinrecyclerviewdagger.main.di.ActivityScope
+import com.adrian.project.ui.blockchaindemoapp.di.BlockchainPageModule
+import com.adrian.project.ui.blockchaindemoapp.view.BlockchainPageActivity
 import com.adrian.project.ui.jsonplaceholder.di.JsonPlaceholderFragmentBuilderModule
 import com.adrian.project.ui.jsonplaceholder.di.JsonPlaceholderModule
 import com.adrian.project.ui.main.JsonPlaceholderActivity
@@ -23,5 +25,9 @@ abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = arrayOf(JsonPlaceholderModule::class, JsonPlaceholderFragmentBuilderModule::class))
     abstract fun bindJsonPlaceholderActivity(): JsonPlaceholderActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = arrayOf(BlockchainPageModule::class))
+    abstract fun bindBlockchainPageActivity(): BlockchainPageActivity
 
 }
