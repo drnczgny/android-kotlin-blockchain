@@ -13,9 +13,9 @@ import dagger.Provides
 @Module
 class BlockchainPageModule {
 
-    @ActivityScope
-    @Provides
-    fun providesBlockchainPageRouter(activity: BlockchainPageActivity) = activity
+//    @ActivityScope
+//    @Provides
+//    fun providesBlockchainPageRouter(activity: BlockchainPageActivity) = activity
 
     @ActivityScope
     @Provides

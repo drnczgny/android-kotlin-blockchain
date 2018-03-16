@@ -1,9 +1,11 @@
 package com.adrian.project.di
 
+import android.content.Context
 import com.adrian.project.MyApplication
 import com.adrian.project.data.ApiService
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -15,7 +17,8 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideContext(myApplication: MyApplication) = myApplication
+    @Named("ApplicationContext")
+    fun provideContext(myApplication: MyApplication): Context = myApplication.applicationContext
 
     @Singleton
     @Provides
